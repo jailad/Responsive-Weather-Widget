@@ -1,0 +1,505 @@
+
+.searchhistitem
+{
+  
+  
+}
+
+.anylocationinputbox input
+{
+    /* ensuring links are clickable beyond just the text*/
+display: block;
+width: 95%;
+
+/* not stating fixed text size for scaling */
+font-size: medium;
+
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+
+font-family: arial; 
+
+padding: .5em;
+color: #000000;
+
+background: #e2e2e2; /* old browsers */
+background: -moz-linear-gradient(left, #e2e2e2 21%, #dbdbdb 50%, #d1d1d1 100%, #fefefe 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, right top, color-stop(21%,#e2e2e2), color-stop(50%,#dbdbdb), color-stop(100%,#d1d1d1), color-stop(100%,#fefefe)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=1 ); /* ie */
+
+}
+
+.anylocationsearchbox a
+{
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+font-variant:small-caps;
+font-weight:bold; 
+
+/* not stating fixed text size for scaling */
+font-size: medium;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+text-align: center ;
+
+
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+/*
+ text-shadow: 1px 1px 1px #000;*/
+border: solid thin #882d13;
+-webkit-border-radius: .7em;
+-moz-border-radius: .7em;
+border-radius: .7em;
+-webkit-box-shadow: 2px 2px 3px #999;
+box-shadow: 2px 2px 2px #bbb;
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+}
+
+.locallocationsearchbox a
+{
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: medium;
+font-weight:bold; 
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+
+font-variant:small-caps;
+text-align: center ;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+/*
+ text-shadow: 1px 1px 1px #000;*/
+border: solid thin #882d13;
+-webkit-border-radius: .7em;
+-moz-border-radius: .7em;
+border-radius: .7em;
+-webkit-box-shadow: 2px 2px 3px #999;
+box-shadow: 2px 2px 2px #bbb;
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+}
+
+
+.weatherresults
+{
+
+
+}
+
+.searchhistory
+{
+width: 100%;
+
+font-size: medium;
+font-family: arial; 
+
+
+color: #000000;
+text-align: center;
+vertical-align: middle ;
+
+
+
+}
+
+.searchhistory a
+{
+  width: 100%;
+background: #000000;
+font-size: medium;
+font-family: arial; 
+
+
+color: #000000;
+text-align: center;
+vertical-align: middle ;
+
+
+}
+
+.searchhistory input
+{
+  width: 100%;
+background: #000000;
+font-size: medium;
+font-family: arial; 
+
+
+color: #000000;
+text-align: center;
+vertical-align: middle ;
+
+/*
+ text-shadow: 1px 1px 1px #000;*/
+border: solid thin #882d13;
+-webkit-border-radius: .7em;
+-moz-border-radius: .7em;
+border-radius: .7em;
+-webkit-box-shadow: 2px 2px 3px #999;
+box-shadow: 2px 2px 2px #bbb;
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+
+}
+
+
+.weatherresults p
+{
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: medium;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+
+
+border: none;
+-webkit-border-radius: .1em;
+-moz-border-radius: .1em;
+border-radius: .1em;
+-webkit-box-shadow: 1px 1px 1px #999;
+box-shadow: 1px 1px 1px #bbb;
+
+
+background: #dbdbdb; /* old browsers */
+background: -moz-linear-gradient(top, #dbdbdb 7%, #e2e2e2 13%, #fefefe 63%, #d1d1d1 90%); /* firefox */
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(7%,#dbdbdb), color-stop(13%,#e2e2e2), color-stop(63%,#fefefe), color-stop(90%,#d1d1d1)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbdbdb', endColorstr='#d1d1d1',GradientType=0 ); /* ie */
+
+}
+
+.weatherresults div
+{
+    
+    font-family: arial; 
+color: #000000;
+
+font-size: medium;
+
+background: #ff5c5c; /* old browsers */
+background: -moz-linear-gradient(left, #ff5c5c 0%, #fe9090 23%, #febbbb 62%); /* firefox */
+
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff5c5c), color-stop(23%,#fe9090), color-stop(62%,#febbbb)); /* webkit */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5c5c', endColorstr='#febbbb',GradientType=1 ); /* ie */
+
+
+}
+
+
+.weatherresults aside
+{
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: x-small;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+text-align:right;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+
+/* text-shadow: 1px 1px 1px #000;*/
+border: none;
+-webkit-border-radius: .1em;
+-moz-border-radius: .1em;
+border-radius: .1em;
+-webkit-box-shadow: 1px 1px 1px #999;
+box-shadow: 1px 1px 1px #bbb;
+
+
+
+background: #fefefe; /* old browsers */
+background: -moz-linear-gradient(left, #fefefe 7%, #e2e2e2 64%, #dbdbdb 85%, #d1d1d1 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, right top, color-stop(7%,#fefefe), color-stop(64%,#e2e2e2), color-stop(85%,#dbdbdb), color-stop(100%,#d1d1d1)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d1d1d1',GradientType=1 ); /* ie */
+
+}
+
+
+.weatherresults a
+{
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: medium;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+/*
+ text-shadow: 1px 1px 1px #000;*/
+border: solid thin #882d13;
+-webkit-border-radius: .7em;
+-moz-border-radius: .7em;
+border-radius: .7em;
+-webkit-box-shadow: 2px 2px 3px #999;
+box-shadow: 2px 2px 2px #bbb;
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+}
+
+
+.sectionheader{
+width: 100%;
+background: #000000;
+font-size: larger;
+font-family: arial; 
+font-variant:small-caps;
+color: #ffffff;
+text-align: center;
+vertical-align: middle ;
+}
+
+
+.appheader{
+width: 100%;
+background: #000000;
+font-size: larger;
+font-family: arial; 
+font-variant:small-caps;
+color: #ffffff;
+text-align: center;
+vertical-align: middle ;
+}
+
+.appfooter{
+
+
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: x-small;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+text-align:right;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+
+/* text-shadow: 1px 1px 1px #000;*/
+border: none;
+-webkit-border-radius: .1em;
+-moz-border-radius: .1em;
+border-radius: .1em;
+-webkit-box-shadow: 1px 1px 1px #999;
+box-shadow: 1px 1px 1px #bbb;
+
+
+
+background: #fefefe; /* old browsers */
+background: -moz-linear-gradient(left, #fefefe 7%, #e2e2e2 64%, #dbdbdb 85%, #d1d1d1 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, right top, color-stop(7%,#fefefe), color-stop(64%,#e2e2e2), color-stop(85%,#dbdbdb), color-stop(100%,#d1d1d1)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d1d1d1',GradientType=1 ); /* ie */
+
+}
+
+.topmenubaritemactive{
+
+width: 100%;
+font-size: large;
+font-family: arial; 
+font-variant:small-caps;
+
+background: #fcfff4; /* old browsers */
+background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); /* ie */
+
+text-align: center;
+vertical-align: middle ;
+
+/* for IE */
+  filter:alpha(opacity=60);
+  /* CSS3 standard */
+  opacity:1.0;
+
+}
+
+.topmenubariteminactive{
+width: 100%;
+font-family: arial; 
+font-size: large;
+font-variant:small-caps;
+
+background: #f6f8f9; /* old browsers */
+background: -moz-linear-gradient(top, #f6f8f9 0%, #e5ebee 50%, #d7dee3 96%, #f5f7f9 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f6f8f9), color-stop(50%,#e5ebee), color-stop(96%,#d7dee3), color-stop(100%,#f5f7f9)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f8f9', endColorstr='#f5f7f9',GradientType=0 ); /* ie */
+
+text-align: center;
+vertical-align: middle ;
+
+/* for IE */
+filter:alpha(opacity=60);
+/* CSS3 standard */
+opacity:0.5;
+
+}
+
+.maindiv
+{
+
+font: 12px/15px sans-serif;
+
+background: #fcfff4; /* old browsers */
+background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 ); /* ie */
+}
+
+.anylocationsearchbox
+{
+    width:100%;
+}
+
+.newsresults
+{
+
+
+}
+
+.newsresults a
+{
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: medium;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+/*
+ text-shadow: 1px 1px 1px #000;*/
+border: solid thin #882d13;
+-webkit-border-radius: .7em;
+-moz-border-radius: .7em;
+border-radius: .7em;
+-webkit-box-shadow: 2px 2px 3px #999;
+box-shadow: 2px 2px 2px #bbb;
+
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcfff4), color-stop(40%,#dfe5d7), color-stop(100%,#b3bead)); /* webkit */
+
+}
+
+.newsresults aside
+{
+
+
+/* ensuring links are clickable beyond just the text*/
+display: block;
+
+/* not stating fixed text size for scaling */
+font-size: x-small;
+
+/* links by default are underlined which I do not want in my case */
+text-decoration:none;
+text-align:right;
+
+ font-family: arial; 
+
+padding: .5em;
+color: #000000;
+/*
+ text-shadow: 1px 1px 1px #000;*/
+border: none;
+-webkit-border-radius: .1em;
+-moz-border-radius: .1em;
+border-radius: .1em;
+-webkit-box-shadow: 1px 1px 1px #999;
+box-shadow: 1px 1px 1px #bbb;
+
+
+
+background: #fefefe; /* old browsers */
+background: -moz-linear-gradient(left, #fefefe 7%, #e2e2e2 64%, #dbdbdb 85%, #d1d1d1 100%); /* firefox */
+
+background: -webkit-gradient(linear, left top, right top, color-stop(7%,#fefefe), color-stop(64%,#e2e2e2), color-stop(85%,#dbdbdb), color-stop(100%,#d1d1d1)); /* webkit */
+
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#d1d1d1',GradientType=1 ); /* ie */
+
+
+}
+
+
+.maincontainer{
+width: 100%;
+background: #ffffff;
+}
+
+
+.errorresults
+{
+
+font-family: arial; 
+color: #000000;
+
+font-size: medium;
+
+background: #ff5c5c; /* old browsers */
+background: -moz-linear-gradient(left, #ff5c5c 0%, #fe9090 23%, #febbbb 62%); /* firefox */
+
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff5c5c), color-stop(23%,#fe9090), color-stop(62%,#febbbb)); /* webkit */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff5c5c', endColorstr='#febbbb',GradientType=1 ); /* ie */
+
+}
+
+

@@ -1,0 +1,291 @@
+<!-- Version History:
+v6. final submitted
+v5. stable  - pre-prod state, took care of all pending items, todos, and cleared out code
+v4. stable - yql example gnews_4 - 1. re-architected the app to not use user's input directly, but, to first convert / attempt to convert the input into latitude and longitude in order to generate uniform results across multiple services. for example, when i input 'atlanta in' to google news, it does show to me news for atlanta in indianapolis, but when i enter 'atlanta in' to the weather service which I am using, it shows results for atlanta ga, thereby producing inconsistent results. also added some localstorage and localsearch functionality. also created onload function.
+v3. stable - yql example gnews_3 - isolates js and css, better documentation, and better css. it is still about just the news.
+v2. stable - yql example gnews_2 - isolates js and css, better documentation, and better css
+v1. stable - yql example gnews 
+-->
+
+<!-- Features:
+
+1. It will handle inputs like @@tlant@.
+2. will accurately resolve aaaatlanta to the best match (atlanta, ga).
+3. Will automatically load up the last valid entry open on the interface, when it loads.
+4. always displays how recent the information fetched was.
+5. When making a call to the services, it shows a nice animated loading image in the news and weather sections so that the user knows the app is responding.
+6. if the location search box is empty, it is automatically filled with text - 'Please type a location here'.
+7. Suppose I type atlantaaa in the search box, as soon as the app determines Atlanta, GA, USA, it will show as such within the app location input box, providing another feedback to the user.
+8. The weather service which I used ( worldweatheronline ) doesnt seem to be handling City,State combination well. I tested with Atlanta, IN and it returns to me the results from Atlanta, GA. Thus, it would produce an inconsistent interface with google news which accepts Atlanta, IN. So, to resolve this, I first convert the input into lat, long for which the weather service provides good results.
+9. Decent User Interface making use of gentle gradients.
+10. Has the 'plumbing' for offlining built-in, but has not been fully implemented. 
+
+-->
+
+<!-- Issues:
+
+1. While the app accurately stores unique key+value pairs for History, when I tried to convert it into links ( function $(".searchhistitem").each under mainjs.js ), I am unable to 'grab' the history item elements to manipulate them to be clickable links.
+FYI: some of the other related functions which deal with history elements are:  savehistory() and displayhistory()
+
+--> 
+
+<!-- App Code Start: Using my base template for a HTML5, CSS, JS page -->
+
+<!-- Credits -->
+<!-- Credit 1: yql news example from http://developer.yahoo.com/yql/guide/yql-tutorials.html but with modifications to adjust to the type of results returned by google news -->
+<!-- Credit 2: http://www.colorzilla.com/gradient-editor/ ; for their wonderful css gradient generator tool
+<!-- Credit 3: http://www.activestate.com/komodo-edit ; for the Komodo Edit tool which was used to create this app
+<!-- Credit 4: http://ajaxload.info/ for creating animated gifs-->
+<!-- Credit 5: http://plugins.jquery.com/project/URLEncode ; url encoder plugin ; it didn't work out for me but seeems to be something which I will be using in the next version of this app, therefore am still referencing it here -->
+<!-- Credit 6: http://code.google.com/apis/maps/documentation/geocoding/ ; the xml example here was useful in understanding the structure of the returned result set-->
+<!-- Credit 7: Google Maps Marker was used as application icon
+
+<!-- Doctype shown below is characteristic HTML5 type doctype -->
+
+<!doctype html>
+  
+  <!-- Manifest file for offlining -->
+  
+<html manifest="cache.manifest">
+  
+  <head>
+    
+     <!-- using Viewport for displaying content which scales appropriately  -->
+            
+            <meta name="viewport" content="user-scalable=no,width=device-width" />
+            <meta name="description" content="Base Template for HTML5, AJAX stuff" />
+            <meta name="keywords" content="HTML,HTML5,CSS,JavaScript" />
+            <meta name="author" content="Jai Lad" />
+            <meta name="revised" content="Jai Lad, 02/11/2011" />
+            <meta charset="UTF-8" />
+            <meta http-equiv="content-script-type" content="text/javascript">
+            
+            <title>Mobile Local - Your Local Info Guru !</title>
+            
+            <!-- Isolating the page from Business Logic ( JS ) and presentation ( CSS ) is generally considered to be a good practise, hence separating out CSS and JS -->
+            
+             <!-- Including JavaScript(s) -->
+             <!-- JQuery is being pulled from Google's CDN, and can be downloaded locally if needed for offlining this app via a manifest file.-->
+             
+             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+             <script src="js/mainjs.js" type="text/javascript"></script>
+             <script src="js/urlEncode.js" type="text/javascript"></script>
+    
+            <!-- Including default page Cascading Style Sheet -->
+            <link href="css/maincss.css" rel="stylesheet" type="text/css">
+              
+            <!-- Including App Icon(s) -->
+            <link href='images/applogo1.jpg' rel='icon' />
+            <link href='images/applogo1.jpg' rel="SHORTCUT ICON" />
+            
+  </head>
+  
+  <body>
+     <!-- This represents the overall container for the app -->
+     <table class='maincontainer'>
+      
+      <!-- Row containing the App Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='appheader'>
+                       Mobile Local                       
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing App Header -->
+      
+      <!-- Row containing the top menubar -->
+      <tr>
+        
+         <td width=50%>
+          <div class='topmenubaritemactive' id='anylocation'>
+            Your Local Info Guru !
+          </div>
+         </td>         
+        
+      </tr>
+      
+      <!-- End of Row containing the top menubar -->
+      
+      <!-- Row containing the Location Search-->
+      
+       <tr>
+        <td colspan=2>
+          
+          <table width=100%>
+                <tr>
+                  <td >
+                    <!-- Div placeholder for AnyLocation Searchbox -->
+          <div class='anylocationinputbox' width=100%>            
+            <input id="anylocationinput" name="q" autofocus placeholder="Please type a location here ..."/>       
+          </div>
+                  </td>
+                  
+                   <td >
+                    
+                     <!-- Div placeholder for AnyLocation Searchbox -->
+                     <div class='anylocationsearchbox' id='anylocationsearchbox' width=100%> 
+                       <a id="anylocationsearch" class='anylocationsearchbox'> Search </a>
+                     </div>
+                     
+                  </td>
+                   
+                   
+                    <td>
+                      
+                     <!-- Div placeholder for LocalLocation Searchbox -->
+                     <div class='locallocationsearchbox' id='locallocationsearchbox' width=100%> 
+                       <a id="locallocationsearch" class='locallocationsearchbox'> Local Search </a>
+                     </div>
+                     
+                  </td>
+                 
+                   
+                   
+                </tr>
+               </table>
+          
+          
+        </td>    
+      </tr>
+       
+       <!-- End of Row containing the Location Search-->
+       
+       <!-- Row containing the Weather Section Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='sectionheader'>
+                      Weather Forecast
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing Weather Section Header -->
+      
+      <!-- Row containing the Weather Info -->
+      
+      <tr>
+        <td colspan=2>
+          <!-- Div placeholder for News Results -->
+          <div class='weatherresults' id='weatherresults' >       
+            
+            
+          </div>
+        </td>    
+      </tr>
+    
+      <!-- End of Row containing the News -->
+      
+       <!-- Row containing the News Section Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='sectionheader'>
+                      News
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing News Section Header -->
+      
+       
+       <!-- Row containing the News -->
+      
+      <tr>
+        <td colspan=2>
+          <!-- Div placeholder for News Results -->
+          <div class='newsresults' id='newsresults' >       
+            
+            
+          </div>
+        </td>    
+      </tr>
+    
+      <!-- End of Row containing the News -->
+      
+      
+      <!-- Row containing the History Section Header -->
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='sectionheader'>
+                      Recent Search History
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>      
+      <!-- End of Row containing the History Section Header -->
+      
+      
+       <!-- Row containing the History -->
+      
+      <tr>        
+            <td colspan=2>
+              
+               <table width=100%>
+                <tr>
+                  <td >
+                    <div class='searchhistory' id='searchhistory'>
+                      
+                    </div>
+                  </td>
+                </tr>
+               </table>
+               
+            </td>                     
+      </tr>     
+     
+    
+      <!-- End of Row containing the History items -->
+      
+      <!-- Row containing the App Footer -->
+      <tr>        
+         <td colspan=2>
+          <br>
+          <div class='appfooter'>
+            &copy; 2011 Jai Lad
+          </div>
+         </td>       
+      </tr>      
+      <!-- End of Row containing App Header -->
+      
+      </table>
+     
+     <!-- End of app placeholders -->
+     
+  
+  <!-- This script was used initially to load up some results initially, part of debug code -->
+  <!--
+    <script src='http://query.yahooapis.com/v1/public/yql?q=select%20title%2C%20link%2C%20description%20from%20rss%20where%20url%20%3D%20%22http%3A%2F%2Fnews.google.com%2Fnews%3Fgeo%3Dboston%26output%3Drss%22&format=json&callback=cbfunc'>
+  </script>
+  -->
+    
+  </body>
+</html>

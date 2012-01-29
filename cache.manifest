@@ -1,0 +1,9 @@
+CACHE MANIFEST
+NETWORK:
+http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js
+CACHE:
+index.htm
+css/maincss.css
+js/mainjs.js
+images/loading1.gif
+images/applogo1.jpg
